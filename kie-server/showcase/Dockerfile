@@ -3,22 +3,24 @@
 #################################################################################
 
 ####### BASE ############
-FROM jboss/kie-server:7.8.0.Final
+FROM jboss/kie-server:7.7.0.Final
 
 ####### MAINTAINER ############
 MAINTAINER "Michael Biarnes Kiefer" "mbiarnes@redhat.com"
 
 ####### ENVIRONMENT ############
-# ENV KIE_SERVER_ID kie-server
+# 
+ENV KIE_SERVER_ID kie-server
 ENV KIE_SERVER_LOCATION http://localhost:8080/kie-server/services/rest/server
 ENV KIE_SERVER_USER kieserver
 ENV KIE_SERVER_PWD kieserver1!
-# ENV KIE_SERVER_CONTROLLER http://localhost:8080/kie-wb/rest/controller
-ENV KIE_SERVER_CONTROLLER_USER admin
-ENV KIE_SERVER_CONTROLLER_PWD admin
-ENV KIE_MAVEN_REPO http://localhost:8080/kie-wb/maven2
-ENV KIE_MAVEN_REPO_USER admin
-ENV KIE_MAVEN_REPO_PASSWORD admin
+# 
+ENV KIE_SERVER_CONTROLLER http://ec2-34-208-8-6.us-west-2.compute.amazonaws.com:8080/kie-wb/rest/controller
+ENV KIE_SERVER_CONTROLLER_USER kieserver
+ENV KIE_SERVER_CONTROLLER_PWD kieserver1!
+ENV KIE_MAVEN_REPO http://ec2-34-208-8-6.us-west-2.compute.amazonaws.com:8080/kie-wb/maven2
+ENV KIE_MAVEN_REPO_USER workbench
+ENV KIE_MAVEN_REPO_PASSWORD workbench1!
 ENV JAVA_OPTS -Xms256m -Xmx1024m -Djava.net.preferIPv4Stack=true
 
 ####### Drools KIE Server CUSTOM CONFIGURATION ############
